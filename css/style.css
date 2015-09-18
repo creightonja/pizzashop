@@ -1,0 +1,17 @@
+.container{
+  height: 100%;
+  width: 800px;
+  margin: auto;
+}
+
+.topping{
+  display: block;
+}
+
+.size{
+  margin: 20px;
+}
+
+.num{
+  margin: 20px;
+}

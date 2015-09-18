@@ -7,25 +7,6 @@ describe("Pizza", function(){
   });
 });
 
-describe("addTopping", function(){
-  it("Expect a new topping (Olive) to be added the object", function(){
-    var testPizza = new Pizza(2, "Large", ["Pepperoni"]);
-    expect(testPizza.addTopping("Olive")).to.eql(["Pepperoni", "Olive"]);
-  });
-
-  it("Expect a new topping (Mushroom) to be added the object", function(){
-    var testPizza = new Pizza(2, "Large", ["Pepperoni", "Olive"]);
-    expect(testPizza.addTopping("Mushroom")).to.eql(["Pepperoni", "Olive", "Mushroom"]);
-  });
-});
-
-describe("removeTopping", function(){
-  it("Expect a topping (Olive) to be removed from the object", function(){
-    var testPizza = new Pizza(2, "Large", ["Pepperoni", "Olive", "Sausage"]);
-    expect(testPizza.removeTopping("Olive")).to.eql(["Pepperoni", "Sausage"]);
-  });
-});
-
 describe("setNum", function(){
   it("Expect a new number of pizzas to change the pizza number.", function(){
     var testPizza = new Pizza(2, "Large", ["Pepperoni"]);
