@@ -6,8 +6,11 @@ function Pizza(num, size, toppings){
   this.toppings = toppings;
 };
 
-function addTopping(topping){
-
+Pizza.prototype.addTopping = function(topping) {
+  var oldToppings = this.toppings;
+  var newToppings = oldToppings.push(topping);
+  this[toppings] = newToppings;
+  return this.toppings;
 };
 
 function removeTopping(topping){
