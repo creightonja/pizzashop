@@ -17,5 +17,28 @@ describe("addTopping", function(){
     var testPizza = new Pizza(2, "Large", ["Pepperoni", "Olive"]);
     expect(testPizza.addTopping("Mushroom")).to.eql(["Pepperoni", "Olive", "Mushroom"]);
   });
+});
 
+describe("removeTopping", function(){
+  it("Expect a topping (Olive) to be removed from the object", function(){
+    var testPizza = new Pizza(2, "Large", ["Pepperoni", "Olive", "Sausage"]);
+    expect(testPizza.removeTopping("Olive")).to.eql(["Pepperoni", "Sausage"]);
+  });
+});
+
+describe("describe", function(){
+  it("Expect a printout of the selected pizza with 1 topping", function(){
+    var testPizza = new Pizza(2, "Large", ["Pepperoni"]);
+    expect(testPizza.description()).to.eql("2 Large pizza(s) with Pepperoni");
+  });
+
+  it("Expect a printout of the selected pizza with 2 toppings", function(){
+    var testPizza = new Pizza(2, "Large", ["Pepperoni", "Sausage"]);
+    expect(testPizza.description()).to.eql("2 Large pizza(s) with Pepperoni and Sausage");
+  });
+
+  it("Expect a printout of the selected pizza with 3 toppings", function(){
+    var testPizza = new Pizza(2, "Large", ["Pepperoni", "Sausage", "Olive"]);
+    expect(testPizza.description()).to.eql("2 Large pizza(s) with Pepperoni, Sausage, and Olive");
+  });
 });

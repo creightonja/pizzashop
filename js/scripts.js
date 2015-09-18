@@ -13,10 +13,28 @@ Pizza.prototype.addTopping = function(topping) {
   return this.toppings;
 };
 
-function removeTopping(topping){
-
+Pizza.prototype.removeTopping = function(topping){
+  var oldToppings = this.toppings;
+  var index = oldToppings.indexOf(topping);
+  var newToppings = oldToppings.splice(index, 1);
+  this[toppings] = newToppings;
+  return this.toppings;
 };
 
-// Pizza.prototype.description = function() {
-//   return this.num + " " + ;
-// }
+Pizza.prototype.description = function() {
+  var theToppings = this.toppings;
+  if (theToppings.length > 2){
+    var lastTopping = theToppings.pop();
+    var joinToppings = theToppings.join(", ");
+    return this.num + " " + this.size + " pizza(s) with " + joinToppings + ", and " + lastTopping;
+  } else if (theToppings.length == 2){
+    return this.num + " " + this.size + " pizza(s) with " + theToppings[0] + " and " + theToppings[1];
+  } else {
+    return this.num + " " + this.size + " pizza(s) with " + theToppings[0];
+  }
+};
+
+$(document).ready(function(){
+  
+
+});
