@@ -1,4 +1,6 @@
 var toppings = [];
+var listOfToppings = ["Pepperoni", "Sausage", "Canadian Bacon", "Chicken", "Olive", "Onion", "Green Pepper", "Mushroom", "Tomatoes"];
+var selectedToppings = [];
 
 function Pizza(num, size, toppings){
   this.num = num;
@@ -20,6 +22,16 @@ Pizza.prototype.removeTopping = function(topping){
   this[toppings] = newToppings;
   return this.toppings;
 };
+
+Pizza.prototype.setNum = function(num){
+  this.num = num;
+  return this.num;
+}
+
+Pizza.prototype.setSize = function(size){
+  this.size = size;
+  return this.size;
+}
 
 Pizza.prototype.description = function(){
   var theToppings = this.toppings;

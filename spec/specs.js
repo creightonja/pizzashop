@@ -26,6 +26,20 @@ describe("removeTopping", function(){
   });
 });
 
+describe("setNum", function(){
+  it("Expect a new number of pizzas to change the pizza number.", function(){
+    var testPizza = new Pizza(2, "Large", ["Pepperoni"]);
+    expect(testPizza.setNum(1)).to.eql(1);
+  });
+});
+
+describe("setSize", function(){
+  it("Expect a new number of pizzas to change the pizza number.", function(){
+    var testPizza = new Pizza(2, "Large", ["Pepperoni"]);
+    expect(testPizza.setSize("Small")).to.eql("Small");
+  });
+});
+
 describe("describe", function(){
   it("Expect a printout of the selected pizza with 1 topping", function(){
     var testPizza = new Pizza(2, "Large", ["Pepperoni"]);
@@ -53,7 +67,7 @@ describe("cost", function(){
     var testPizza = new Pizza(2, "Medium", ["Pepperoni", "Sausage"]);
     expect(testPizza.cost()).to.eql(22.00);
   });
-  it("Expect three large pizzas with 3 topping to cost ", function(){
+  it("Expect three large pizzas with 3 topping to cost 50.25", function(){
     var testPizza = new Pizza(3, "Large", ["Pepperoni", "Sausage", "Olive"]);
     expect(testPizza.cost()).to.eql(50.25);
   });
