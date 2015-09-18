@@ -34,9 +34,16 @@ describe("setNum", function(){
 });
 
 describe("setSize", function(){
-  it("Expect a new number of pizzas to change the pizza number.", function(){
+  it("Expect a new size of the pizza to change the pizza size.", function(){
     var testPizza = new Pizza(2, "Large", ["Pepperoni"]);
     expect(testPizza.setSize("Small")).to.eql("Small");
+  });
+});
+
+describe("setToppings", function(){
+  it("Expect new toppings of the pizzas to change the pizza toppings.", function(){
+    var testPizza = new Pizza(2, "Large", ["Pepperoni"]);
+    expect(testPizza.setToppings(["Pepperoni", "Sausage"])).to.eql(["Pepperoni", "Sausage"]);
   });
 });
 

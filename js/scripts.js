@@ -26,12 +26,18 @@ Pizza.prototype.removeTopping = function(topping){
 Pizza.prototype.setNum = function(num){
   this.num = num;
   return this.num;
-}
+};
 
 Pizza.prototype.setSize = function(size){
   this.size = size;
   return this.size;
-}
+};
+
+Pizza.prototype.setToppings = function(toppings){
+  var newToppings = toppings;
+  this.toppings = newToppings;
+  return this.toppings;
+};
 
 Pizza.prototype.description = function(){
   var theToppings = this.toppings;
