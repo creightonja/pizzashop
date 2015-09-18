@@ -21,7 +21,7 @@ Pizza.prototype.removeTopping = function(topping){
   return this.toppings;
 };
 
-Pizza.prototype.description = function() {
+Pizza.prototype.description = function(){
   var theToppings = this.toppings;
   if (theToppings.length > 2){
     var lastTopping = theToppings.pop();
@@ -34,7 +34,26 @@ Pizza.prototype.description = function() {
   }
 };
 
+Pizza.prototype.cost = function(){
+  //debugger;
+  var toppingCount = this.toppings.length;
+  if (this.size == "Small"){
+    var sizeCost = 5.50;
+    var toppingCost = toppingCount * .75;
+  } else if (this.size == "Medium"){
+    var sizeCost = 8.50;
+    var toppingCost = toppingCount * 1.25;
+  } else {
+    var sizeCost = 11.50;
+    var toppingCost = toppingCount * 1.75;
+  }
+  var pizzaCost = sizeCost + toppingCost;
+  var total = pizzaCost * this.num;
+  total.toFixed(2);
+  return total;
+}
+
 $(document).ready(function(){
-  
+
 
 });
