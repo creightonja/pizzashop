@@ -10,13 +10,21 @@
   </head>
   <body>
     <div class="container">
-      <div class="availableToppings">
-        <ul class="available toppingUl">Choose your toppings!
-        </ul>
-      </div>
-      <div class="selectedToppings">
-        <ul class="selected toppingUl">The toppings you selected!
-        </ul>
+
+      <div class="row">
+          <div class="leftbar">
+
+          </div>
+          <section class="maincontent">
+            <div class="availableToppings">
+              <ul class="available toppingUl">Choose your toppings!
+              </ul>
+            </div>
+            <div class="selectedToppings">
+              <ul class="selected toppingUl">The toppings you selected!
+              </ul>
+            </div>
+          </section>
       </div>
       <div class="size">
         <select id="selectSize">

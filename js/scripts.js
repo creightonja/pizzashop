@@ -31,8 +31,10 @@ Pizza.prototype.setToppings = function(toppings){
 //Generating description based on different grammar of list length
 Pizza.prototype.description = function(){
   var theToppings = this.toppings;
+
   if (theToppings.length > 2){
-    var lastTopping = theToppings.pop();
+    var toppingCount = this.toppings.length;
+    var lastTopping = theToppings[toppingCount-1];
     var joinToppings = theToppings.join(", ");
     return this.num + " " + this.size + " pizza(s) with " + joinToppings + ", and " + lastTopping;
   } else if (theToppings.length == 2){
@@ -57,7 +59,6 @@ Pizza.prototype.cost = function(){
   }
   var pizzaCost = sizeCost + toppingCost;
   var total = pizzaCost * this.num;
-  total.toFixed(2);
   return total;
 };
 
