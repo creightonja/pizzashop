@@ -66,7 +66,7 @@ Pizza.prototype.cost = function(){
   }
   var pizzaCost = sizeCost + toppingCost;
   var total = pizzaCost * this.num;
-  return total;
+  return "$" + total.toFixed(2); //setting to 2 deimals for dollars
 };
 
 //Generating an Li element for appending to the Document
