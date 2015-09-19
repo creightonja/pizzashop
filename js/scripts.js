@@ -1,10 +1,11 @@
 //Declaring global variables
-var toppings = [];
+var stationaryToppings = ["Pepperoni", "Sausage", "Ham", "Chicken", "Olive", "Onion", "Peppers", "Mushroom", "Tomato", "Pineapple"];
 var listOfToppings = ["Pepperoni", "Sausage", "Ham", "Chicken", "Olive", "Onion", "Peppers", "Mushroom", "Tomato", "Pineapple"];
 var specialties = ["Humdinger", "49er", "Usual", "Hawaiian", "Pepsausage"];
 var specialtyToppings = [["Pepperoni", "Sausage", "Olive", "Mushroom"], ["Pepperoni", "Peppers", "Onion", "Mushroom", "Tomato"],
             ["Pepperoni", "Mushroom"], ["Ham", "Pineapple"], ["Pepperoni", "Sausage"]];
 var selectedToppings = [];
+var toppings = [];
 var thePizza = new Pizza(0,0,0);
 var toppingLi;
 
@@ -102,6 +103,8 @@ function removeTopping(topping){
 
 function initialList(){
   $(".toppingUl").empty();
+  listOfToppings = stationaryToppings.slice();
+  selectedToppings = [];
   for (var i = 0; i < listOfToppings.length; i++){
     $(".available").append(displayTopping(listOfToppings[i]));
   };
