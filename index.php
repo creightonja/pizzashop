@@ -16,7 +16,7 @@
       </div>
 
       <div class="row">
-          <div class="col-sm-3">
+          <div class="col-sm-3 sidebar">
             <div class="size">
               <p>Select a Size:</p>
               <select id="selectSize">
@@ -36,7 +36,7 @@
               </select>
             </div>
             <div class="cost">
-              <span class="calculate">Calculate the price:</span>
+              <span class="calculate">Calculate Price:</span>
               <span class="the-cost"></span>
             </div>
             <div class="the-order">
@@ -51,8 +51,8 @@
                 <ul class="available toppingUl list-group">Choose your toppings!
                 </ul>
               </div>
-              <div class="selectedToppings col-md-6 list-group">
-                <ul class="selected toppingUl">The toppings you selected!
+              <div class="selectedToppings col-md-6">
+                <ul class="selected toppingUl list-group">The toppings you selected!
                 </ul>
               </div>
             </div>
