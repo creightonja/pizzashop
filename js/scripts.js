@@ -31,14 +31,17 @@ Pizza.prototype.setToppings = function(toppings){
 //Generating description based on different grammar of list length
 Pizza.prototype.description = function(){
   var theToppings = this.toppings;
+  var toppingsLength = theToppings.length;
 
-  if (theToppings.length > 2){
-    var toppingCount = this.toppings.length;
-    var lastTopping = theToppings[toppingCount-1];
+  if (toppingsLength > 2){
+    var lastTopping = theToppings.pop();
     var joinToppings = theToppings.join(", ");
+    theToppings.push(lastTopping);
     return this.num + " " + this.size + " pizza(s) with " + joinToppings + ", and " + lastTopping;
-  } else if (theToppings.length == 2){
+  } else if (toppingsLength == 2){
     return this.num + " " + this.size + " pizza(s) with " + theToppings[0] + " and " + theToppings[1];
+  } else if (toppingsLength == 0){
+    return this.num + " " + this.size + " pizzas(s) with only cheese";
   } else {
     return this.num + " " + this.size + " pizza(s) with " + theToppings[0];
   }
@@ -64,7 +67,7 @@ Pizza.prototype.cost = function(){
 
 //Generating an Li element for appending to the Document
 function displayTopping(topping){
-  var toppingLi = "<li class='" + topping + " topping'>" + topping + "</li>";
+  var toppingLi = "<li class='" + topping + " topping list-group-item'>" + topping + "</li>";
   return toppingLi;
 };
 
@@ -117,6 +120,7 @@ $(document).ready(function(){
     thePizza.setSize(theSize);
     var theNum = $("#selectNum").val();
     thePizza.setNum(theNum);
+    thePizza.setToppings(selectedToppings);
     var calculate = thePizza.cost();
     $(".the-cost").empty();
     $(".the-cost").text(calculate);
