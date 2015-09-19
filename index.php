@@ -16,7 +16,7 @@
       </div>
 
       <div class="row">
-          <div class="col-md-3">
+          <div class="col-sm-3">
             <div class="size">
               <p>Select a Size:</p>
               <select id="selectSize">
@@ -45,7 +45,7 @@
           </div>
 
 
-          <div class="col-md-9">
+          <div class="col-sm-9">
             <div class="row">
               <div class="availableToppings col-md-6">
                 <ul class="available toppingUl list-group">Choose your toppings!
