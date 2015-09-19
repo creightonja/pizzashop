@@ -47,12 +47,23 @@
 
           <div class="col-sm-9">
             <div class="row">
+              Pick a specialty pizza:
+            </div>
+            <div class="row the-specialities">
+
+            </div>
+            <div class="row">
+              Create your own pizza:
+            </div>
+            <div class="row">
               <div class="availableToppings col-md-6">
-                <ul class="available toppingUl list-group">Choose your toppings!
+                Choose your toppings!
+                <ul class="available toppingUl list-group">
                 </ul>
               </div>
               <div class="selectedToppings col-md-6">
-                <ul class="selected toppingUl list-group">The toppings you selected!
+                The toppings you selected!
+                <ul class="selected toppingUl list-group">
                 </ul>
               </div>
             </div>

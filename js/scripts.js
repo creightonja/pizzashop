@@ -1,6 +1,9 @@
 //Declaring global variables
 var toppings = [];
-var listOfToppings = ["Pepperoni", "Sausage", "Ham", "Chicken", "Olive", "Onion", "Peppers", "Mushroom", "Tomatoes"];
+var listOfToppings = ["Pepperoni", "Sausage", "Ham", "Chicken", "Olive", "Onion", "Peppers", "Mushroom", "Tomato", "Pineapple"];
+var specialties = ["Humdinger", "49er", "Usual", "Hawaiian", "Pepsausage"];
+var specialtyToppings = [["Pepperoni", "Sausage", "Olive", "Mushroom"], ["Pepperoni", "Peppers", "Onion", "Mushroom", "Tomato"],
+            ["Pepperoni", "Mushroom"], ["Ham", "Pineapple"], ["Pepperoni", "Sausage"]];
 var selectedToppings = [];
 var thePizza = new Pizza(0,0,0);
 var toppingLi;
@@ -71,6 +74,12 @@ function displayTopping(topping){
   return toppingLi;
 };
 
+//Generating divs for specialty pizzas
+function displaySpecialty(specialty){
+  var specialtyDiv = "<div id='" + specialty + "' class='specialty'>" + specialty + "</div>";
+  return specialtyDiv;
+};
+
 //Adding a topping to the selected and removing from available
 function addTopping(topping) {
   var index = listOfToppings.indexOf(topping);  //Finding Spot in array of topping
@@ -91,12 +100,32 @@ function removeTopping(topping){
   return toppingLi;
 };
 
-$(document).ready(function(){
-
-  //Displaying all available toppings.
+function initialList(){
+  $(".toppingUl").empty();
   for (var i = 0; i < listOfToppings.length; i++){
     $(".available").append(displayTopping(listOfToppings[i]));
   };
+};
+
+$(document).ready(function(){
+
+  for (var i = 0; i < specialties.length; i++){
+    $(".the-specialities").append(displaySpecialty(specialties[i]));
+  };
+
+  initialList(); //Generating a cheese pizza
+
+  $(".specialty").click(function(){
+    var theSpecialty = $(this).attr("id");
+    var index = specialties.indexOf(theSpecialty);
+    var theToppings = specialtyToppings[index];
+    initialList(); //Resetting toppings
+    for (var i = 0; i < theToppings.length; i++){
+      toppingLi = addTopping(theToppings[i]);
+      $("." + theToppings[i]).remove();
+      $(".selected").append(toppingLi);
+    }
+  });
 
   //Click listener for selecting/deselecting toppings
   $(".toppingUl").on('click', '.topping', function(){
