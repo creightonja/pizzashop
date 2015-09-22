@@ -1,11 +1,10 @@
 //Declaring global variables
-var stationaryToppings = ["Pepperoni", "Sausage", "Canadian Bacon", "Chicken", "Olive", "Onion", "Green Pepper", "Mushroom", "Tomato", "Pineapple"];
-var listOfToppings = ["Pepperoni", "Sausage", "Canadian Bacon", "Chicken", "Olive", "Onion", "Green Pepper", "Mushroom", "Tomato", "Pineapple"];
+var stationaryToppings = ["Pepperoni", "Italian Sausage", "Canadian Bacon", "Salami", "Beef", "Chicken", "Olive", "Onion", "Green Pepper", "Mushroom", "Tomato", "Pineapple"];
 var specialties = ["Humdinger", "49er", "Usual", "Hawaiian", "Pepsausage"];
-var specialtyToppings = [["Pepperoni", "Sausage", "Olive", "Mushroom"], ["Pepperoni", "Green Pepper", "Onion", "Mushroom", "Tomato"],
-            ["Pepperoni", "Mushroom"], ["Canadian Bacon", "Pineapple"], ["Pepperoni", "Sausage"]];
+var specialtyToppings = [["Pepperoni", "Italian Sausage", "Olive", "Mushroom"], ["Pepperoni", "Green Pepper", "Onion", "Mushroom", "Tomato"],
+            ["Pepperoni", "Mushroom"], ["Canadian Bacon", "Pineapple"], ["Pepperoni", "Italian Sausage"]];
 var selectedToppings = [];
-var toppings = [];
+var listOfToppings = [];
 var thePizza = new Pizza(0,0,0);
 var toppingLi;
 
@@ -71,7 +70,7 @@ Pizza.prototype.cost = function(){
 
 //Generating an Li element for appending to the Document
 function displayTopping(topping){
-  var toppingLi = "<li class='" + topping + " topping list-group-item'>" + topping + "</li>";
+  var toppingLi = "<div class='" + topping + " topping'><span class='toppingSpan'>" + topping + "</span></div>";
   return toppingLi;
 };
 
@@ -135,17 +134,13 @@ $(document).ready(function(){
     var parentClasses = $(this).parent().attr("class");
     var parentClass = parentClasses.split(" ");
     var currentClasses = $(this).attr("class");
-    var theTopping = currentClasses.replace(" topping list-group-item", "");
+    var theTopping = currentClasses.replace(" topping", "");
     var removeClass = currentClasses.split(" ");
     console.log(theTopping);
     if (parentClass[0] == "available"){
-      toppingLi = addTopping(theTopping);
-      $("." + removeClass[0]).remove();
-      $(".selected").append(toppingLi);
+      $("." + removeClass[0]).appendTo(".selected");
     } else {
-      toppingLi = removeTopping(theTopping);
-      $("." + removeClass[0]).remove();
-      $(".available").append(toppingLi);
+      $("." + removeClass[0]).appendTo(".available");
     }
   });
 
