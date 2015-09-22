@@ -1,9 +1,9 @@
 //Declaring global variables
-var stationaryToppings = ["Pepperoni", "Sausage", "Ham", "Chicken", "Olive", "Onion", "Peppers", "Mushroom", "Tomato", "Pineapple"];
-var listOfToppings = ["Pepperoni", "Sausage", "Ham", "Chicken", "Olive", "Onion", "Peppers", "Mushroom", "Tomato", "Pineapple"];
+var stationaryToppings = ["Pepperoni", "Sausage", "Canadian Bacon", "Chicken", "Olive", "Onion", "Green Pepper", "Mushroom", "Tomato", "Pineapple"];
+var listOfToppings = ["Pepperoni", "Sausage", "Canadian Bacon", "Chicken", "Olive", "Onion", "Green Pepper", "Mushroom", "Tomato", "Pineapple"];
 var specialties = ["Humdinger", "49er", "Usual", "Hawaiian", "Pepsausage"];
-var specialtyToppings = [["Pepperoni", "Sausage", "Olive", "Mushroom"], ["Pepperoni", "Peppers", "Onion", "Mushroom", "Tomato"],
-            ["Pepperoni", "Mushroom"], ["Ham", "Pineapple"], ["Pepperoni", "Sausage"]];
+var specialtyToppings = [["Pepperoni", "Sausage", "Olive", "Mushroom"], ["Pepperoni", "Green Pepper", "Onion", "Mushroom", "Tomato"],
+            ["Pepperoni", "Mushroom"], ["Canadian Bacon", "Pineapple"], ["Pepperoni", "Sausage"]];
 var selectedToppings = [];
 var toppings = [];
 var thePizza = new Pizza(0,0,0);
@@ -135,14 +135,16 @@ $(document).ready(function(){
     var parentClasses = $(this).parent().attr("class");
     var parentClass = parentClasses.split(" ");
     var currentClasses = $(this).attr("class");
-    var currentClass = currentClasses.split(" ");
+    var theTopping = currentClasses.replace(" topping list-group-item", "");
+    var removeClass = currentClasses.split(" ");
+    console.log(theTopping);
     if (parentClass[0] == "available"){
-      toppingLi = addTopping(currentClass[0]);
-      $("." + currentClass[0]).remove();
+      toppingLi = addTopping(theTopping);
+      $("." + removeClass[0]).remove();
       $(".selected").append(toppingLi);
     } else {
-      toppingLi = removeTopping(currentClass[0]);
-      $("." + currentClass[0]).remove();
+      toppingLi = removeTopping(theTopping);
+      $("." + removeClass[0]).remove();
       $(".available").append(toppingLi);
     }
   });
