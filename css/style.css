@@ -47,15 +47,23 @@ body {
 
 .topping{
   display: inline-block;
+  position: relative;
   width: 100px;
   height: 100px;
   border: 1px solid black;
   margin: 5px;
 
+
 }
 
 .toppingSpan{
   vertical-align: bottom;
+  position: absolute;
+  border-top: 1px solid black;
+  width: 98px;
+  bottom: 0px;
+  left: 0px;
+  background:rgba(255,255,255,0.7);
 }
 
 .size{
@@ -99,11 +107,13 @@ body {
 }
 
 .Canadian {
-
+  background-image: url("../img/canadian-bacon.jpg");
+  background-size: cover;
 }
 
 .Salami {
-
+  background-image: url("../img/salami.png");
+  background-size: cover;
 }
 
 .Beef {
@@ -114,12 +124,19 @@ body {
 
 }
 
-.Olive {
+.Green{
+  background-image: url("../img/green-pepper.jpg");
+  background-size: cover;
+}
 
+.Olive {
+  background-image: url("../img/olive.jpg");
+  background-size: cover;
 }
 
 .Onion {
-
+  background-image: url("../img/onion.jpg");
+  background-size: cover;
 }
 
 .Green {
@@ -127,7 +144,8 @@ body {
 }
 
 .Mushroom {
-
+  background-image: url("../img/mushroom.jpg");
+  background-size: cover;
 }
 
 .Tomato {

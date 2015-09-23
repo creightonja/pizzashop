@@ -63,16 +63,16 @@ describe("cost", function(){
 
 describe("addTopping", function(){
   it("Expect to delete topping from list, and move to selected list, return Topping li", function(){
-    expect(addTopping("Pepperoni")).to.eql("<div class='Pepperoni topping'>Pepperoni</li>");
-    expect(listOfToppings).to.eql(["Sausage", "Ham", "Chicken", "Olive", "Onion", "Peppers", "Mushroom", "Tomatoes"]);
+    expect(addTopping("Pepperoni")).to.eql("<div class=\'Pepperoni topping\'><span class=\'toppingSpan\'>Pepperoni</span></div>");
+    expect(listOfToppings).to.eql(["Italian Sausage", "Canadian Bacon", "Salami", "Beef", "Chicken", "Olive", "Onion", "Green Pepper", "Mushroom", "Tomato", "Pineapple"]);
     expect(selectedToppings).to.eql(["Pepperoni"]);
   });
 });
 
 describe("removeTopping", function(){
   it("Expect to delete topping from selected list, and move to topping list, return Topping li", function(){
-    expect(removeTopping("Pepperoni")).to.eql("<li class='Pepperoni topping list-group-item'>Pepperoni</li>");
-    expect(listOfToppings).to.eql(["Sausage", "Ham", "Chicken", "Olive", "Onion", "Peppers", "Mushroom", "Tomatoes", "Pepperoni"]);
+    expect(removeTopping("Pepperoni")).to.eql("<div class=\'Pepperoni topping\'><span class=\'toppingSpan\'>Pepperoni</span></div>");
+    expect(listOfToppings).to.eql(["Italian Sausage", "Canadian Bacon", "Salami", "Beef", "Chicken", "Olive", "Onion", "Green Pepper", "Mushroom", "Tomato", "Pineapple", "Pepperoni"]);
     expect(selectedToppings).to.eql([]);
   });
 });
