@@ -1,27 +1,37 @@
+aside, article, section, header, footer, nav {
+  display: block;
+}
+
+html, body, div, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
 html {
   height: 100%;
 }
 body {
     background: #455A64;
     height: 100%;
+    width: 80%;
     overflow: auto;
     color: #263238;
+    margin: auto;
+    font-size: 10px;
+}
+
+.floatclear {
+  clear: both;
 }
 
 .container {
     background: white;
     border-radius: 2px;
+    height: 100%;
     min-height: 100%;
+    width: 100%;
     overflow: auto;
-}
-
-.specialty {
-  border: 2px solid black;
-  padding: 20px;
-  margin: 10px;
-  display: inline-block;
-  width: 15%;
-  text-align: center;
+    font-size: 1.6em;
 }
 
 .row{
@@ -39,31 +49,40 @@ body {
 
 .sidebar{
   height: 100%;
+  min-height: 100%;
+  background-color: blue;
+  float: left;
+  width: 14%;
+  margin: 0 1em 0 1em;
+  padding: 1em;
 }
+
 
 .maincontent{
-  height: 500px;
+  height: 100%;
+  float: left;
+  width: 79%;
+  margin: 0;
+  padding: 0;
 }
 
-.topping{
-  display: inline-block;
-  position: relative;
-  width: 100px;
-  height: 100px;
-  border: 1px solid black;
-  margin: 5px;
-
-
+.pizzacol{
+  height:100%;
+  width:73%;
+  margin:1%;
+  float: left;
 }
 
-.toppingSpan{
-  vertical-align: bottom;
-  position: absolute;
-  border-top: 1px solid black;
-  width: 98px;
-  bottom: 0px;
-  left: 0px;
-  background:rgba(255,255,255,0.7);
+.toppingcol{
+  height: 100%;
+  width: 25%;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+
+.the-order{
+  margin: 20px;
 }
 
 .size{
@@ -72,16 +91,6 @@ body {
 
 .num{
   margin: 20px;
-}
-
-.toppingUl{
-  margin: 0;
-  padding: 20px;
-  text-align: center;
-}
-
-.toppingUl li{
-  text-align: center;
 }
 
 .calculate{
@@ -93,17 +102,59 @@ body {
   white-space: nowrap;
 }
 
-.the-order{
-  margin: 20px;
+.specialty {
+  position: relative;
+  border: 1px solid black;
+  display: inline-block;
+  width: 150px;
+  height: 100px;
+  text-align: center;
+  cursor: pointer;
+  margin-right: 10px;
+}
 
+.specialtySpan {
+  position: absolute;
+  border-top: 1px solid black;
+  width: 148px;
+  bottom: 0px;
+  left: 0px;
+  background:rgba(255,255,255,0.7);
+}
+
+.topping{
+  display: inline-block;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  margin: 3px;
+  cursor: pointer;
+}
+
+.toppingUl{
+  margin: 0;
+  padding: 0px;
+  text-align: center;
+}
+
+.toppingSpan{
+  position: absolute;
+  border-top: 1px solid black;
+  width: 98px;
+  bottom: 0px;
+  left: 0px;
+  background:rgba(255,255,255,0.7);
 }
 
 .Pepperoni {
   background-image: url("../img/pepperoni.jpg");
+  background-size: cover;
 }
 
 .Italian {
-
+  background-image: url("../img/sausage.jpg");
+  background-size: cover;
 }
 
 .Canadian {
@@ -117,11 +168,13 @@ body {
 }
 
 .Beef {
-
+  background-image: url("../img/beef.jpg");
+  background-size: cover;
 }
 
 .Chicken {
-
+  background-image: url("../img/chicken.jpg");
+  background-size: cover;
 }
 
 .Green{
@@ -139,19 +192,17 @@ body {
   background-size: cover;
 }
 
-.Green {
-
-}
-
 .Mushroom {
   background-image: url("../img/mushroom.jpg");
   background-size: cover;
 }
 
 .Tomato {
-
+  background-image: url("../img/tomato.jpg");
+  background-size: cover;
 }
 
 .Pineapple {
-
+  background-image: url("../img/pineapple.jpg");
+  background-size: cover;
 }

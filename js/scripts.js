@@ -1,7 +1,7 @@
 //Declaring global variables
 var stationaryToppings = ["Pepperoni", "Italian Sausage", "Canadian Bacon", "Salami", "Beef", "Chicken", "Olive", "Onion", "Green Pepper", "Mushroom", "Tomato", "Pineapple"];
-var specialties = ["Humdinger", "49er", "Usual", "Hawaiian", "Pepsausage"];
-var specialtyToppings = [["Pepperoni", "Italian Sausage", "Olive", "Mushroom"], ["Pepperoni", "Green Pepper", "Onion", "Mushroom", "Tomato"],
+var specialties = ["Cheese", "Humdinger", "49er", "Usual", "Hawaiian", "Pepsausage"];
+var specialtyToppings = [[],["Pepperoni", "Italian Sausage", "Olive", "Mushroom", "Salami"], ["Pepperoni", "Green Pepper", "Onion", "Mushroom", "Tomato"],
             ["Pepperoni", "Mushroom"], ["Canadian Bacon", "Pineapple"], ["Pepperoni", "Italian Sausage"]];
 var selectedToppings = [];
 var listOfToppings = [];
@@ -76,7 +76,7 @@ function displayTopping(topping){
 
 //Generating divs for specialty pizzas
 function displaySpecialty(specialty){
-  var specialtyDiv = "<div id='" + specialty + "' class='specialty'>" + specialty + "</div>";
+  var specialtyDiv = "<div id='" + specialty + "' class='specialty'><span class='specialtySpan'>" + specialty + "</span></div>";
   return specialtyDiv;
 };
 
@@ -123,9 +123,9 @@ $(document).ready(function(){
     var theToppings = specialtyToppings[index];
     initialList(); //Resetting toppings
     for (var i = 0; i < theToppings.length; i++){
-      toppingLi = addTopping(theToppings[i]);
-      $("." + theToppings[i]).remove();
-      $(".selected").append(toppingLi);
+      var theTopping = theToppings[i].split(" ");
+      $("." + theTopping).appendTo(".selected");
+          console.log(theToppings[i]);
     }
   });
 
