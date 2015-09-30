@@ -3,6 +3,7 @@ var stationaryToppings = ["Pepperoni", "Italian Sausage", "Canadian Bacon", "Sal
 var specialties = ["Cheese", "Humdinger", "49er", "Usual", "Hawaiian", "Pepsausage"];
 var specialtyToppings = [[],["Pepperoni", "Italian Sausage", "Olive", "Mushroom", "Salami"], ["Pepperoni", "Green Pepper", "Onion", "Mushroom", "Tomato"],
             ["Pepperoni", "Mushroom"], ["Canadian Bacon", "Pineapple"], ["Pepperoni", "Italian Sausage"]];
+var theMeats = ["Pepperoni", "Italian Sausage", "Canadian Bacon", "Salami", "Beef", "Chicken"];
 var selectedToppings = [];
 var listOfToppings = [];
 var thePizza = new Pizza(0,0,0);
@@ -82,6 +83,7 @@ function displaySpecialty(specialty){
 
 //Adding a topping to the selected and removing from available
 function addTopping(topping) {
+  debugger;
   var index = listOfToppings.indexOf(topping);  //Finding Spot in array of topping
   listOfToppings.splice(index, 1);  //Removing from list of available array
   selectedToppings.push(topping); //Adding to list of selected array
@@ -100,19 +102,33 @@ function removeTopping(topping){
   return toppingLi;
 };
 
+function checkMeat(topping){
+  var index = theMeats.indexOf(topping);
+  if (index != -1){
+    return false;
+  } else {
+    return true;
+  }
+};
+
 function initialList(){
   $(".toppingUl").empty();
-  listOfToppings = stationaryToppings.slice();
   selectedToppings = [];
+  listOfToppings = stationaryToppings.slice();
   for (var i = 0; i < listOfToppings.length; i++){
-    $(".available").append(displayTopping(listOfToppings[i]));
+    var toppingType = checkMeat(listOfToppings[i])
+    if (toppingType){
+      $(".vegetable").append(displayTopping(listOfToppings[i]));
+    } else {
+      $(".meat").append(displayTopping(listOfToppings[i]));
+    }
   };
 };
 
 $(document).ready(function(){
 
   for (var i = 0; i < specialties.length; i++){
-    $(".the-specialities").append(displaySpecialty(specialties[i]));
+    $(".the-specialties").append(displaySpecialty(specialties[i]));
   };
 
   initialList(); //Generating a cheese pizza
@@ -125,8 +141,8 @@ $(document).ready(function(){
     for (var i = 0; i < theToppings.length; i++){
       var theTopping = theToppings[i].split(" ");
       $("." + theTopping).appendTo(".selected");
-          console.log(theToppings[i]);
     }
+    // $(".the-specialties").slideUp();
   });
 
   //Click listener for selecting/deselecting toppings
@@ -135,12 +151,17 @@ $(document).ready(function(){
     var parentClass = parentClasses.split(" ");
     var currentClasses = $(this).attr("class");
     var theTopping = currentClasses.replace(" topping", "");
-    var removeClass = currentClasses.split(" ");
     console.log(theTopping);
+    var toppingType = checkMeat(theTopping);
+    var removeClass = currentClasses.split(" ");
     if (parentClass[0] == "available"){
       $("." + removeClass[0]).appendTo(".selected");
     } else {
-      $("." + removeClass[0]).appendTo(".available");
+      if (toppingType){
+        $("." + removeClass[0]).appendTo(".vegetable");
+      } else {
+        $("." + removeClass[0]).appendTo(".meat");
+      }
     }
   });
 
@@ -155,6 +176,22 @@ $(document).ready(function(){
     $(".the-cost").text(calculate);
     var pizzaDescription = thePizza.description();
     $(".order").text(pizzaDescription);
+  });
+
+  $(".pick-specialty").click(function(){
+    $(".the-specialties").slideToggle();
+  });
+
+  $(".theMeats").click(function(){
+    $(".meats").slideToggle();
+  });
+
+  $(".theVegetables").click(function(){
+    $(".vegetables").slideToggle();
+  });
+
+  $(".createPizza").click(function(){
+    $(".meats").slideToggle();
   });
 
 });

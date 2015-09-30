@@ -2,73 +2,84 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/scripts.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
 
     <title>Order a Pizza!</title>
   </head>
   <body>
     <div class="container">
+      <div class="navcontainer">
+
+      </div>
       <div class="title">
-        <h2>Welcome to Blah's Pizza</h2>
+        <h2>A Pizza Shop</h2>
       </div>
+      <div class="contentContainer">
+        <div class="sidebar">
+          <div class="size">
+            <p>Select a Size:</p>
+            <select id="selectSize">
+              <option value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Large">Large</option>
+            </select>
+          </div>
+          <div class="num">
+            <p>Select how many:</p>
+            <select id="selectNum">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div class="cost">
+            <span class="calculate">Calculate Price:</span>
+            <span class="the-cost"></span>
+          </div>
+          <div class="the-order">
+            <span class="order"></span>
+          </div>
+        </div>
 
-      <div class="row">
-          <div class="sidebar">
-            <div class="size">
-              <p>Select a Size:</p>
-              <select id="selectSize">
-                <option value="Small">Small</option>
-                <option value="Medium">Medium</option>
-                <option value="Large">Large</option>
-              </select>
+
+        <div class="maincontent">
+          <div class="pizzacol">
+            <div class="pick-specialty">Pick a specialty pizza:
             </div>
-            <div class="num">
-              <p>Select how many:</p>
-              <select id="selectNum">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-            </div>
-            <div class="cost">
-              <span class="calculate">Calculate Price:</span>
-              <span class="the-cost"></span>
-            </div>
-            <div class="the-order">
-              <span class="order"></span>
+            <div class="the-specialties"></div>
+            <div class="createPizza">Create your own pizza: </div>
+            <span class="floatclear"></span>
+            <div class="selectedToppings">
+
+              <ul class="selected toppingUl">
+              </ul>
             </div>
           </div>
-
-
-          <div class="maincontent">
-            <div class="row">
-              <div class="pizzacol">
-                Pick a specialty pizza:
-
-                <div class="the-specialities">
-
-                </div>
-                <div class="selectedToppings">
-                  The toppings you selected!
-                  <ul class="selected toppingUl list-group">
-                  </ul>
-                </div>
-              </div>
-              <div class="toppingcol">
-                <div class="availableToppings">
-                  Create your own pizza:
-                  <ul class="available toppingUl list-group">
-                  </ul>
-                </div>
-              </div>
+          <div class="toppingCol">
+            <div class="theMeats">Meats</div>
+            <div class="meats">
+              <ul class="available meat toppingUl">
+              </ul>
+            </div>
+            <div class="theVegetables">Vegetables</div>
+            <div class="vegetables">
+              <ul class="available vegetable toppingUl">
+              </ul>
+            </div>
+            <div class="toppingFiller">
+              
             </div>
           </div>
-      </div>
+        </div>
       <span class="cleafix"></span>
+      <div class="footerContainer">
+
+      </div>
     </div>
   </body>
 </html>
