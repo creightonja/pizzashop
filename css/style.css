@@ -5,6 +5,7 @@ aside, article, section, header, footer, nav {
 html, body, div, h1, h2, h3, p, ul, li {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -92,14 +93,14 @@ body {
 .maincontent{
   height: 100%;
   float: left;
-  width: 82.7%;
+  width: 86%;
   padding: 0;
   border-left: 2px solid white;
 }
 
 .pizzacol{
   height:100%;
-  width:74%;
+  width:75%;
   float: left;
   border-right: 2px solid white;
   overflow: hidden;

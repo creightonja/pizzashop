@@ -83,13 +83,11 @@ function displaySpecialty(specialty){
 
 //Adding a topping to the selected and removing from available
 function addTopping(topping) {
-  debugger;
   var index = listOfToppings.indexOf(topping);  //Finding Spot in array of topping
   listOfToppings.splice(index, 1);  //Removing from list of available array
   selectedToppings.push(topping); //Adding to list of selected array
   thePizza.setToppings(selectedToppings); //Setting the object to the new toppings
-  var toppingLi = displayTopping(topping) // Generating new li
-  return toppingLi;  //returning Li
+  return;  //returning Li
 };
 
 //Removing a topping from selected and adding to available.
@@ -141,6 +139,7 @@ $(document).ready(function(){
     for (var i = 0; i < theToppings.length; i++){
       var theTopping = theToppings[i].split(" ");
       $("." + theTopping).appendTo(".selected");
+      addTopping(theTopping);
     }
     // $(".the-specialties").slideUp();
   });
@@ -156,11 +155,14 @@ $(document).ready(function(){
     var removeClass = currentClasses.split(" ");
     if (parentClass[0] == "available"){
       $("." + removeClass[0]).appendTo(".selected");
+      addTopping(theTopping);
     } else {
       if (toppingType){
         $("." + removeClass[0]).appendTo(".vegetable");
+        removeTopping(theTopping);
       } else {
         $("." + removeClass[0]).appendTo(".meat");
+        removeTopping(theTopping);
       }
     }
   });
