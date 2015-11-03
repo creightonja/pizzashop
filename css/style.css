@@ -32,7 +32,6 @@ body {
   height: 100%;
   min-height: 100%;
   width: 80%;
-  overflow: auto;
   font-size: 1.6em;
   margin: auto;
 }
@@ -44,22 +43,39 @@ body {
   border-top-right-radius: 25px;
 }
 
-.title h2{
+.navlinks {
+    height: 100%;
+    margin-right: 5em;
+    border-left: 1px solid black;
+    float: right;
+}
+
+.navlinks li{
+    display: inline-block;
+    padding: 10px;
+    border-right: 1px solid black;
+    height: 100%;
+    text-align: center;
+    color: white;
+    font-size: 1.6em;
+}
+
+.title h1{
   padding: 40px;
   background-color: rgb(62,96,111);
   text-align: center;
   color: white;
   border-top: 2px solid white;
+  text-decoration: none;
 }
 
 .contentContainer{
   margin-top: 2px;
-  height: 100%;
+  height: 70%;
 }
 
 .sidebar{
   height: 100%;
-  min-height: 100%;
   background-color: rgb(62,96,111);
   color: white;
   float: left;
@@ -151,7 +167,7 @@ body {
   margin: 0;
   padding: 0;
   float: left;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .theMeats{
